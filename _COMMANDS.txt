@@ -8,3 +8,19 @@ rails g controller comments new
 rails g controller admin/comments destroy
 rails g controller admin/users new create edit update destroy index show
 rails g controller admin/sessions new create
+
+rails g model post title:string category_id:integer user_id:integer tags:text image:string body:text
+rake db:migrate
+rails g model category name:string
+rake db:migrate
+rails g model user name:string email:string password_hash:string password_salt:string
+rake db:migrate
+rails g model comment name:string email:string body:text
+rake db:migrate
+
+rails c
+category = Category.new(:name => "News")
+category.save
+category = Category.all
+
+

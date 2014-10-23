@@ -6,8 +6,6 @@
 ## Version ##
 **0.1.0**
 
-## Demo ##
-To view a live demo, please go to - [http://codedemos.com](http://codedemos.com)
 
 ##Features##
 
