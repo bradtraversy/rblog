@@ -1,0 +1,10 @@
+rails new . --no-ri --no-rdoc
+bundle install
+rails g controller posts index show
+rails g controller admin/posts new create edit update destroy index show
+rails g controller categories show
+rails g controller admin/categories new create edit update destroy index show
+rails g controller comments new
+rails g controller admin/comments destroy
+rails g controller admin/users new create edit update destroy index show
+rails g controller admin/sessions new create
