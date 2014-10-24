@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  match '/contacts', to: 'contacts#new', via: 'get'
+  get 'contact' => 'contacts#new'
+  get 'about' => 'about#index'
+
   namespace :admin do
   get "login" => "sessions#new", :as => "login"
   end
@@ -111,7 +115,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :comments
 
-
+  resources "contacts", only: [:new, :create]
 
 
   # The priority is based upon order of creation: first created -> highest priority.

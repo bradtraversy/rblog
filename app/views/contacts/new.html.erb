@@ -1,0 +1,29 @@
+<div class="well">
+	<h2>Contact Us</h2>
+	<%= simple_form_for @contact do |f| %>
+		<!-- Check for errors -->
+		<% if @contact.errors.any? %>
+		    <% @contact.errors.full_messages.each do |msg| %>
+		    	<!-- Show errors -->
+		      	<div class="alert alert-danger"><%= msg %></div>
+		    <% end %>
+	  	<% end %>
+
+		<div class="form-group">
+			<%= f.label :name %><br />
+			<%= f.text_field :name ,class:'form-control' %><br />
+		</div>
+
+		<div class="form-group">
+			<%= f.label :email %><br />
+			<%= f.text_field :email ,class:'form-control' %><br />
+		</div>
+
+		<div class="form-group">
+			<%= f.label :message %><br />
+			<%= f.text_area :message, class:'form-control' %>
+		</div>
+		
+		<%= f.submit "Send Message", class:'btn btn-primary' %>
+<% end %>
+</div>

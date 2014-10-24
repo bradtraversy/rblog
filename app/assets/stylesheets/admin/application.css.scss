@@ -1,5 +1,6 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * ADMIN STYLESHEET
+ * This is a manifest file that'll be compiled into admin/application.css, which will include all the files
  * listed below.
  *
  * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
@@ -10,6 +11,10 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "admin/partials/variables";
+@import "admin/partials/mixins";
+@import "admin/main";
