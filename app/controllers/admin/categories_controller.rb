@@ -40,13 +40,17 @@ class Admin::CategoriesController < Admin::ApplicationController
   end
 
   def destroy
+    @category = Category.find(params[:id])
+    @category.destroy
+
+    # Create flash message
+    flash[:notice] = "Category Removed"
+ 
+    redirect_to admin_categories_path
   end
 
   def index
-    @categories = Category.all
-  end
-
-  def show
+    @categories = Category.all.order('created_at desc')
   end
 
   private

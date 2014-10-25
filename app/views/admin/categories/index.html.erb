@@ -1,4 +1,19 @@
-<h1>Admin::Categories#index</h1>
-<% @categories.each do |category| %>
-	<%= category.name %>
+<h2 class="page-header">Categories <%=link_to "Create New", new_admin_category_path, class:'btn btn-success pull-right' %></h2>
+<% if @categories.exists? %>
+  <table class="table table-striped">
+    <tr>
+      <th>Category Title</th>
+      <th>Date Created</th>
+      <th>Actions</th>
+    </tr>
+    <% @categories.each do |category| %>
+		<tr>
+      		<td><%= category.name %></td>
+      		<td><%= category.created_at.to_time.strftime('%B %e at %l:%M %p') %>
+      		<td><%=link_to "Edit", edit_admin_category_path(category), class:'btn btn-primary' %> <%=link_to "Delete", admin_category_path(category), class:'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    	</tr>
+	<% end %>
+  </table>
+<% else %>
+	<p>There are no categories</p>
 <% end %>

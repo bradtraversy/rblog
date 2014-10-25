@@ -108,7 +108,7 @@ Rails.application.routes.draw do
   get 'comments/new'
 
   namespace :admin do
-    resources :posts, :categories, :comments
+    resources :posts, :categories, :comments, :users
   end
 
   resources :posts

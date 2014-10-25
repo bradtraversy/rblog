@@ -10,10 +10,10 @@
   	<% end %>
 
 	<div class="form-group">
-		<%= f.label :name %><br />
-		<%= f.text_field :name ,class:'form-control' %><br />
+		<%= f.label :name %>
+		<%= f.text_field :name ,class:'form-control' %>
 	</div>
-	
+	<br>
 	<%= f.submit "Submit", class:'btn btn-primary' %>
-	<%=link_to "Cancel", categories_path, class:'btn btn-default' %>
+	<%=link_to "Cancel", admin_categories_path, class:'btn btn-default' %>
 <% end %>
