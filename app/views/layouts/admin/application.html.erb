@@ -26,12 +26,7 @@
              <li class="<%= params[:controller] == 'admin/categories' ? 'active' : '' %>"><%= link_to "Categories", admin_categories_path %></li>
              <li class="<%= params[:controller] == 'admin/users' ? 'active' : '' %>"><%= link_to "Users", admin_users_path %></li></li>
           </ul>
-          <form class="search-form navbar-form navbar-right" role="search">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
+          <%= render 'partials/admin/search' %>
         </div><!--/.nav-collapse -->
       </div>
   </div>
