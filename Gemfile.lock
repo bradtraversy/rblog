@@ -36,6 +36,10 @@ GEM
     bootstrap-sass (3.2.0.2)
       sass (~> 3.2)
     builder (3.2.2)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.4)
+      climate_control (>= 0.0.3, < 1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -45,6 +49,8 @@ GEM
     coffee-script-source (1.8.0)
     erubis (2.7.0)
     execjs (2.2.2)
+    font-awesome-rails (4.2.0.0)
+      railties (>= 3.2, < 5.0)
     hike (1.2.3)
     i18n (0.6.11)
     jbuilder (2.2.3)
@@ -62,6 +68,11 @@ GEM
     mime-types (2.4.3)
     minitest (5.4.2)
     multi_json (1.10.1)
+    paperclip (4.2.0)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.3)
+      mime-types
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -117,6 +128,9 @@ GEM
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     will_paginate (3.0.7)
+    wysiwyg-rails (1.2.3)
+      font-awesome-rails (= 4.2.0.0)
+      railties (>= 3.2, < 5.0)
 
 PLATFORMS
   ruby
@@ -126,9 +140,11 @@ DEPENDENCIES
   bcrypt-ruby
   bootstrap-sass (~> 3.2.0)
   coffee-rails (~> 4.0.0)
+  font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
   mail_form
+  paperclip (~> 4.2)
   rails (= 4.1.6)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
@@ -138,3 +154,4 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   will_paginate (~> 3.0)
+  wysiwyg-rails

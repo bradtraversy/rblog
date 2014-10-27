@@ -8,9 +8,6 @@ class Admin::PostsController < Admin::ApplicationController
     # Initialize model with attributes
     @post = Post.new(post_params)
 
-    # Call upload() method
-    upload(post_params)
-
     # Save in database
     if @post.save
       # Create flash message
@@ -30,43 +27,15 @@ class Admin::PostsController < Admin::ApplicationController
 
   def update
     @post = Post.find(params[:id])
-
-     # Check if image was added
-    if params[:post][:image].blank?
-      # If no image was added
-      @post.image = 'no-image.jpg'
-    else 
-      # Get posted image
-      uploaded_io = params[:post][:image]
-
-      # Get File Type
-      file_type = uploaded_io.content_type
-
-      # Rename image using correct extension
-       case file_type
-         when "image/jpeg"
-            file_name = "pic_#{Time.now.strftime("%Y%m%d%H%M%S")}.jpg"
-         when "image/png"
-            file_name = "pic_#{Time.now.strftime("%Y%m%d%H%M%S")}.png"
-         when "image/gif"
-            file_name = "pic_#{Time.now.strftime("%Y%m%d%H%M%S")}.gif"
-         when "image/bmp"
-            file_name = "pic_#{Time.now.strftime("%Y%m%d%H%M%S")}.bmp"
-      end
-
-      # Upload File
-      File.open(Rails.root.join('public', 'uploads', file_name), 'wb') do |file|
-        file.write(uploaded_io.read)
-      end
-
-      # Assign image file name for database
-      @post.image = file_name
-    end
  
+    if params[:post][:image].blank?
+      @post.image = nil
+    end
+    
     # Update in database
     if @post.update(post_params)
       # Create flash message
-      flash[:notice] = "PostUpdated"
+      flash[:notice] = "Post Updated"
 
       redirect_to admin_posts_path
     else
@@ -130,6 +99,6 @@ class Admin::PostsController < Admin::ApplicationController
   # Assign post parameters/attributes
   private
     def post_params
-      params.require(:post).permit(:title, :category_id, :user_id, :tags, :body, :image, :image_attributes => [:filename, :content_type])
+      params.require(:post).permit(:title, :category_id, :user_id, :tags, :body, :image)
     end
 end

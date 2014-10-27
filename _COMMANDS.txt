@@ -24,4 +24,9 @@ category = Category.new(:name => "News")
 category.save
 category = Category.all
 
+rails g migration remove_column :posts, :image
+rake db:migrate
+rails g paperclip post image
+rake db:migrate
+
 

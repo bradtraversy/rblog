@@ -1,50 +1,19 @@
-<div class="row">
-	 <div class="col-md-6">
-	    <div class="post">
-	      <img src="img/rails1.jpg">
-	      <div class="post-content">
-	      <h3>Lorem Ipsum</h3>
-	      <small>Posted by Brad on October 23, 2014</small>
-	        <p>Fusce ac justo quam. Suspendisse in metus ultricies, maximus metus nec, eleifend sem. Donec eu nisi felis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus in enim vitae sem porta facilisis. Aliquam ac massa ullamcorper, lobortis risus in, malesuada ipsum. Ut vel posuere eros</p>
-	        <a href="post.html" class="btn btn-primary btn-block">Read More</a>
-	      </div>
-	    </div>
-	 </div>
-	 <div class="col-md-6">
-	    <div class="post">
-	      <img src="img/rails1.jpg">
-	      <div class="post-content">
-	      <h3>Lorem Ipsum</h3>
-	      <small>Posted by Brad on October 23, 2014</small>
-	        <p>Fusce ac justo quam. Suspendisse in metus ultricies, maximus metus nec, eleifend sem. Donec eu nisi felis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus in enim vitae sem porta facilisis. Aliquam ac massa ullamcorper, lobortis risus in, malesuada ipsum. Ut vel posuere eros</p>
-	        <a href="post.html" class="btn btn-primary btn-block">Read More</a>
-	      </div>
-	    </div>
-	 </div>
-	</div>
-
+<div id="posts-index">
+<% @posts.each_slice(2) do |post| %>
 	<div class="row">
-	 <div class="col-md-6">
-	    <div class="post">
-	      <img src="img/rails1.jpg">
-	      <div class="post-content">
-	      <h3>Lorem Ipsum</h3>
-	      <small>Posted by Brad on October 23, 2014</small>
-	        <p>Fusce ac justo quam. Suspendisse in metus ultricies, maximus metus nec, eleifend sem. Donec eu nisi felis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus in enim vitae sem porta facilisis. Aliquam ac massa ullamcorper, lobortis risus in, malesuada ipsum. Ut vel posuere eros</p>
-	        <a href="post.html" class="btn btn-primary btn-block">Read More</a>
-	      </div>
-	    </div>
-	 </div>
-	 <div class="col-md-6">
-	    <div class="post">
-	      <img src="img/rails1.jpg">
-	      <div class="post-content">
-	      <h3>Lorem Ipsum</h3>
-	      <small>Posted by Brad on October 23, 2014</small>
-	        <p>Fusce ac justo quam. Suspendisse in metus ultricies, maximus metus nec, eleifend sem. Donec eu nisi felis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus in enim vitae sem porta facilisis. Aliquam ac massa ullamcorper, lobortis risus in, malesuada ipsum. Ut vel posuere eros</p>
-	        <a href="post.html" class="btn btn-primary btn-block">Read More</a>
-	      </div>
-	    </div>
-	 </div>
+		<% post.each do |post| %>
+			<div class="col-md-6">
+	    		<div class="post">
+			      	<%= image_tag post.image.url,width:'100%' %>
+			      	<div class="post-content">
+			      		<h3><%= post.title %></h3>
+			      		<small>Posted by <%= post.user.name %> on <%= post.created_at.to_time.strftime('%B %e at %l:%M %p') %></small>
+			        	<%= raw post.body.truncate(200) %>
+			        	<%=link_to "Read More", post_path(post), class:'btn btn-primary' %>
+			      </div>
+			    </div>
+			 </div>
+		<% end %>
 	</div>
-
+<% end %>
+</div>

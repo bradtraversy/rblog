@@ -1,5 +1,11 @@
+<script>
+  $(function() {
+    $('textarea#edit').editable({
+      inlineMode: false
+    })
+  });
+</script>
 <h2>Edit Post</h2>
-
 <%= form_for [:admin, @post] do |f| %>
 	<!-- Check for errors -->
 	<% if @post.errors.any? %>
@@ -28,6 +34,9 @@
 		<%= f.label :image %><br />
 		<%= f.file_field :image %>	
 	</div>
+	<% if @post.image.exists? %>
+		<%= image_tag @post.image.url,width:'100%' %>
+	<% end %>
 	<br>
 
 	<div class="form-group">
@@ -37,7 +46,7 @@
 
 	<div class="form-group">
 		<%= f.label :body %><br />
-		<%= f.text_area :body ,class:'form-control' %><br />
+		<%= f.text_area :body ,class:'form-control',id:'edit' %><br />
 	</div>
 	
 	<%= f.submit "Submit", class:'btn btn-primary' %>
