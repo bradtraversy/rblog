@@ -1,0 +1,53 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background:#36424a;
+  color:#fff;
+}
+
+input{
+  margin-bottom:10px !important;
+}
+
+.btn, input{
+  border:0 !important;
+  border-radius:0 !important;
+}
+
+.btn-primary{
+  background:#ff953f;
+}
+
+.btn:hover{
+  background:#ccc;
+  color:#666;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+  text-align: center;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}

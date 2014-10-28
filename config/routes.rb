@@ -2,9 +2,14 @@ Rails.application.routes.draw do
   match '/contacts', to: 'contacts#new', via: 'get'
   get 'contact' => 'contacts#new'
   get 'about' => 'about#index'
+  get 'admin/posts' => 'admin/posts#index'
 
   namespace :admin do
   get "login" => "sessions#new", :as => "login"
+  end
+
+  namespace :admin do
+  get "logout" => "sessions#destroy", :as => "logout"
   end
 
   namespace :admin do
@@ -108,13 +113,15 @@ Rails.application.routes.draw do
   get 'comments/new'
 
   namespace :admin do
-    resources :posts, :categories, :comments, :users
+    resources :posts, :categories, :comments, :users, :sessions
   end
 
-  resources :posts
-  resources :categories
-  resources :comments
-
+  # Frontend Resources
+  resources "posts", only: [:index, :show]
+  resources "categories", only: [:index, :show]
+  resources :posts do
+    resources :comments
+  end
   resources "contacts", only: [:new, :create]
 
 

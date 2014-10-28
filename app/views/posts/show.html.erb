@@ -1,62 +1,8 @@
 <div class="well post-single">
-              <h2 class="page-header"><%= @post.title %></h2>
-              <small>Posted by <%= @post.user.name %> on <%= @post.created_at.to_time.strftime('%B %e at %l:%M %p') %></small>
-              <%= image_tag @post.image.url,width:'100%' %>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et scelerisque nisi. Morbi pulvinar felis non magna suscipit dignissim. Suspendisse pharetra vestibulum molestie. Aliquam et sagittis enim, ut aliquet tellus. In quis faucibus lacus, vitae eleifend orci. Nullam at euismod lacus. Vivamus quis nisi ut turpis aliquet eleifend.</p>
+  <h2 class="page-header"><%= @post.title %></h2>
+  <small>Posted by <%= @post.user.name %> on <%= @post.created_at.to_time.strftime('%B %e at %l:%M %p') %></small>
+  <%= image_tag @post.image.url,width:'100%' %>
+  <%= @post.body %>
+</div>
 
-              <p>Duis volutpat magna eget semper pharetra. Etiam sollicitudin nisi id tincidunt accumsan. Nulla ut leo et ex sagittis tincidunt ac non quam. Aenean eget quam at leo dapibus ornare nec at nisi. Mauris eu augue risus. Ut mollis arcu sit amet elementum facilisis. Donec non cursus dolor, at pharetra velit. Sed ornare sodales sapien vitae eleifend.</p>
-
-              <p>Praesent imperdiet odio eu enim gravida, vel molestie nisl hendrerit. Nam blandit vulputate nisi quis ultricies. Mauris in ligula elit. Integer porttitor egestas lorem sed rhoncus. Quisque non sagittis tellus. Mauris tristique, felis id tincidunt volutpat, urna urna tempus neque, aliquam laoreet mi elit quis nulla. Curabitur vitae hendrerit quam.</p>
-
-              <p>Fusce ac justo quam. Suspendisse in metus ultricies, maximus metus nec, eleifend sem. Donec eu nisi felis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus in enim vitae sem porta facilisis. Aliquam ac massa ullamcorper, lobortis risus in, malesuada ipsum. Ut vel posuere eros, tristique fringilla lorem. Aliquam enim nunc, aliquet eu nisl a, bibendum finibus tellus. Praesent quis commodo purus, ut mattis risus. Suspendisse potenti. Praesent scelerisque nisl nec massa molestie, et sagittis ante mattis. Cras diam nibh, ultricies id lacus sed, dignissim efficitur urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent facilisis risus non scelerisque efficitur.</p>
-            </div>
-
-            <!-- Comments -->
-            <div class="comments">
-              <h2 claass="page-header">2 Comments</h2>
-
-              <div class="comment">
-                <div class="row">
-                  <div class="col-md-2">
-                    <%= image_tag("user.jpg") %>
-                  </div>
-                  <div class="col-md-10">
-                    <div class="well">
-                      <h4>John Doe <span>/October 19, 2014 at 3:45pm</span></h4>
-                      <p>Praesent imperdiet odio eu enim gravida, vel molestie nisl hendrerit. Nam blandit vulputate nisi quis ultricies. Mauris in ligula elit. Integer porttitor egestas lorem sed rhoncus. Quisque non sagittis tellus. Mauris tristique, felis id tincidunt volutpat, urna urna tempus neque, aliquam laoreet mi elit quis nulla. Curabitur vitae hendrerit quam.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="comment">
-                <div class="row">
-                  <div class="col-md-2">
-                    <%= image_tag("user.jpg") %>
-                  </div>
-                  <div class="col-md-10">
-                    <div class="well">
-                      <h4>Jane Doe <span>/October 18, 2014 at 2:15pm</span></h4>
-                      <p>Praesent imperdiet odio eu enim gravida, vel molestie nisl hendrerit. Nam blandit vulputate nisi quis ultricies. Mauris in ligula elit. Integer porttitor egestas lorem sed rhoncus. Quisque non sagittis tellus. Mauris tristique, felis id tincidunt volutpat, urna urna tempus neque, aliquam laoreet mi elit quis nulla. Curabitur vitae hendrerit quam.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="well add-comment">
-                <h2 class="page-header">Add Comment</h2>
-                <form>
-                  <div class="form-group">
-                    <input type="text" class="form-control"> <span> Name</span>
-                  </div>
-                  <div class="form-group">
-                    <input type="email" class="form-control"> <span> Email</span>
-                  </div>
-                  <div class="form-group">
-                    <textarea class="form-control"></textarea>
-                  </div>
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-              </div>
-
-            </div>
+<%= render 'partials/comments' %>

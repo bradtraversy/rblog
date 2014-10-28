@@ -1,6 +1,21 @@
-<div class="list-group">
-    <a href="#" class="list-group-item">News</a>
-    <a href="#" class="list-group-item">Tutorials</a>
-    <a href="#" class="list-group-item">Releases</a>
-    <a href="#" class="list-group-item">Events</a>
-</div>
+<% if params[:controller] == 'posts' || params[:controller] == 'categories'
+%>
+	<div class="list-group">
+	  	<% @categories.each do |category| %>
+  			<%= link_to category.name, category_path(category.id), class:'list-group-item' %>
+		<% end %>
+	</div>
+<% end %>
+
+<% if params[:controller] == 'about' || params[:controller] == 'contacts' %>
+	<div class="well">
+		<h3>Location Info</h3>
+		<ul>
+			<li>rBlog Inc</li>
+			<li>499 Massachusetts Ave, Unit 2</li>
+			<li>Boston, MA 02110</li>
+			<li>Phone: (617) 555-5555</li>
+			<li>Email: support@rbloginc.com</li>
+		</ul>
+	</div>
+<% end %>

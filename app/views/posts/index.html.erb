@@ -1,19 +1,23 @@
 <div id="posts-index">
-<% @posts.each_slice(2) do |post| %>
-	<div class="row">
-		<% post.each do |post| %>
-			<div class="col-md-6">
-	    		<div class="post">
-			      	<%= image_tag post.image.url,width:'100%' %>
-			      	<div class="post-content">
-			      		<h3><%= post.title %></h3>
-			      		<small>Posted by <%= post.user.name %> on <%= post.created_at.to_time.strftime('%B %e at %l:%M %p') %></small>
-			        	<%= raw post.body.truncate(200) %>
-			        	<%=link_to "Read More", post_path(post), class:'btn btn-primary' %>
-			      </div>
-			    </div>
-			 </div>
+	<% if @posts.exists? %>
+		<% @posts.each_slice(2) do |post| %>
+			<div class="row">
+				<% post.each do |post| %>
+					<div class="col-md-6">
+			    		<div class="post">
+					      	<%= image_tag post.image.url,width:'100%' %>
+					      	<div class="post-content">
+					      		<h3><%= post.title %></h3>
+					      		<small>Posted by <%= post.user.name %> on <%= post.created_at.to_time.strftime('%B %e at %l:%M %p') %></small>
+					        	<%= raw post.body.truncate(200) %>
+					        	<%=link_to "Read More", post_path(post), class:'btn btn-primary' %>
+					      </div>
+					    </div>
+					 </div>
+				<% end %>
+			</div>
 		<% end %>
-	</div>
-<% end %>
+	<% else %>
+	<p>No posts</p>
+	<% end %>
 </div>

@@ -1,4 +1,6 @@
 class Admin::CategoriesController < Admin::ApplicationController
+  before_filter :verify_logged_in
+  
   def new
     @page_title = 'Add Category';
     @category = Category.new

@@ -1,4 +1,6 @@
 class Admin::PostsController < Admin::ApplicationController
+  before_filter :verify_logged_in
+
   def new
     @page_title = 'Add Post';
     @post = Post.new
@@ -7,6 +9,10 @@ class Admin::PostsController < Admin::ApplicationController
   def create
     # Initialize model with attributes
     @post = Post.new(post_params)
+
+    if params[:post][:image].blank?
+      @post.image = nil
+    end
 
     # Save in database
     if @post.save
@@ -54,6 +60,7 @@ class Admin::PostsController < Admin::ApplicationController
   end
 
   def index
+    #@user = User.authenticate(params[:login][:username], params[:login][:password])
     if params[:search]
       @posts = Post.search(params[:search]).order("created_at DESC").paginate(:per_page => 10, :page => params[:page])
     else
